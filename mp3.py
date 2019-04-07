@@ -5,6 +5,8 @@ from mutagen.id3 import ID3, APIC
 string_to_remove = input("Enter string to remove: ")
 album = input("Enter Album: ")
 artist = input("Enter Artist: ")
+genre = input("Enter genre: ")
+year = input("Enter release year: ")
 
 for file in glob.glob("*.mp3"):
 
@@ -17,6 +19,8 @@ for file in glob.glob("*.mp3"):
     audio['title'] = title.split('.mp3')[0]
     audio['artist'] = artist
     audio['album'] = album
+    audio['genre'] = genre
+    audio['date'] = year
     print('Saving... ' + file)
     audio.save(file)
 
