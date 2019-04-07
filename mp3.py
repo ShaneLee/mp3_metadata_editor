@@ -1,4 +1,4 @@
-import os, glob, re
+import os, glob
 from mutagen.easyid3 import EasyID3
 from mutagen.id3 import ID3, APIC
 
@@ -9,7 +9,7 @@ artist = input("Enter Artist: ")
 for file in glob.glob("*.mp3"):
 
     audio = EasyID3(file)
-    tracknumber = re.findall('[0-9]', file)[0]
+    tracknumber = [int(s) for s in file.split() if s.isdigit()]
     print(tracknumber)
     title = file.split(string_to_remove)[1]
     audio = EasyID3()
